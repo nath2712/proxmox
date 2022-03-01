@@ -10,10 +10,10 @@ use controllers\crud\files\CrudDNSFiles;
 use Ubiquity\controllers\crud\CRUDFiles;
 use Ubiquity\attributes\items\router\Route;
 
-#[Route(path: "/{resource}",inherited: true,automated: true)]
+#[Route(path: "/crud/{resource}",inherited: true,automated: true)]
 class CrudDNS extends \Ubiquity\controllers\crud\MultiResourceCRUDController{
 
-	#[Route(name: "crud.index",priority: -1)]
+	#[Route(name: "crud.index",priority: -1000)]
 	public function index() {
 		parent::index();
 	}

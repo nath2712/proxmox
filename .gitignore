@@ -4,3 +4,4 @@
 .settings/
 app/cache/
 
+public/.htaccess
