@@ -5,3 +5,4 @@
 app/cache/
 
 public/.htaccess
+app/config/config.php
