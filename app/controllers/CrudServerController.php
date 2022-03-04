@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 use controllers\crud\datas\CrudServerControllerDatas;
+use models\Serveur;
 use Ubiquity\controllers\crud\CRUDDatas;
 use controllers\crud\viewers\CrudServerControllerViewer;
 use Ubiquity\controllers\crud\viewers\ModelViewer;
@@ -16,7 +17,7 @@ class CrudServerController extends \Ubiquity\controllers\crud\CRUDController{
 	public function __construct(){
 		parent::__construct();
 		\Ubiquity\orm\DAO::start();
-		$this->model='models\\Serveur';
+		$this->model=Serveur::class;
 		$this->style='';
 	}
 

@@ -46,6 +46,5 @@ return array(
 			"maintenance",
 			"composer"
 			],
-	"style"=>"inverted",
-	"domain"=>"dns.add"
+	"style"=>"inverted"
 	);
