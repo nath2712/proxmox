@@ -3,6 +3,8 @@ namespace controllers;
 use controllers\crud\datas\CrudDNSDatas;
 use models\User;
 use models\Vm;
+use Ubiquity\controllers\auth\AuthController;
+use Ubiquity\controllers\auth\WithAuthTrait;
 use Ubiquity\controllers\crud\CRUDDatas;
 use controllers\crud\viewers\CrudDNSViewer;
 use Ubiquity\controllers\crud\viewers\ModelViewer;
@@ -14,6 +16,7 @@ use Ubiquity\attributes\items\router\Route;
 
 #[Route(path: "/crud2/{resource}",inherited: true,automated: true)]
 class CrudDNS extends \Ubiquity\controllers\crud\MultiResourceCRUDController{
+    use WithAuthTrait;// appel le controller de connection
 
 	#[Route(name: "crud.index",priority: -1000)]
 	public function index() {
@@ -56,5 +59,9 @@ class CrudDNS extends \Ubiquity\controllers\crud\MultiResourceCRUDController{
 		return new CrudDNSFiles();
 	}
 
+    protected function getAuthController(): AuthController// appelle le controlleur de connexion
+    {
+        return new Myauth($this);
+    }
 
 }
