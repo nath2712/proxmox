@@ -1,2 +1,2 @@
 <?php
-return array("id"=>[["type"=>"id","constraints"=>["autoinc"=>true]]],"service"=>[["type"=>"length","constraints"=>["max"=>150]]]);
+return array("Id_Service"=>[["type"=>"id","constraints"=>["autoinc"=>true]]],"service"=>[["type"=>"length","constraints"=>["max"=>100]]]);

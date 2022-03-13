@@ -6,26 +6,23 @@ use Ubiquity\attributes\items\Column;
 use Ubiquity\attributes\items\Validator;
 use Ubiquity\attributes\items\Transformer;
 use Ubiquity\attributes\items\Table;
-use Ubiquity\attributes\items\OneToMany;
-use Ubiquity\attributes\items\ManyToMany;
-use Ubiquity\attributes\items\JoinTable;
 
 #[Table(name: "serveur")]
 class Serveur{
 	
 	#[Id()]
-	#[Column(name: "id",dbType: "int(11)")]
+	#[Column(name: "Id_Serveur",dbType: "int(11)")]
 	#[Validator(type: "id",constraints: ["autoinc"=>true])]
-	private $id;
+	private $Id_Serveur;
 
 	
-	#[Column(name: "ipAddress",nullable: true,dbType: "varchar(15)")]
-	#[Validator(type: "length",constraints: ["max"=>15])]
+	#[Column(name: "ipAddress",nullable: true,dbType: "varchar(50)")]
+	#[Validator(type: "length",constraints: ["max"=>50])]
 	private $ipAddress;
 
 	
-	#[Column(name: "dnsName",nullable: true,dbType: "varchar(255)")]
-	#[Validator(type: "length",constraints: ["max"=>255])]
+	#[Column(name: "dnsName",nullable: true,dbType: "varchar(50)")]
+	#[Validator(type: "length",constraints: ["max"=>50])]
 	private $dnsName;
 
 	
@@ -34,131 +31,54 @@ class Serveur{
 	private $login;
 
 	
-	#[Column(name: "password",nullable: true,dbType: "varchar(255)")]
-	#[Validator(type: "length",constraints: ["max"=>255])]
+	#[Column(name: "password",nullable: true,dbType: "varchar(50)")]
+	#[Validator(type: "length",constraints: ["max"=>50])]
 	#[Transformer(name: "password")]
 	private $password;
 
-	
-	#[OneToMany(mappedBy: "serveur",className: "models\\Route")]
-	private $routes;
-
-	
-	#[OneToMany(mappedBy: "serveur",className: "models\\Vm")]
-	private $vms;
-
-	
-	#[ManyToMany(targetEntity: "models\\User_",inversedBy: "serveurs")]
-	#[JoinTable(name: "userservers",joinColumns: ["name"=>"id_1","referencedColumnName"=>"id"],inverseJoinColumns: ["name"=>"id","referencedColumnName"=>"id"])]
-	private $user_s;
-
-
-	 public function __construct(){
-		$this->routes = [];
-		$this->vms = [];
-		$this->user_s = [];
+	public function getId_Serveur(){
+		return $this->Id_Serveur;
 	}
 
-
-	public function getId(){
-		return $this->id;
+	public function setId_Serveur($Id_Serveur){
+		$this->Id_Serveur=$Id_Serveur;
 	}
-
-
-	public function setId($id){
-		$this->id=$id;
-	}
-
 
 	public function getIpAddress(){
 		return $this->ipAddress;
 	}
 
-
 	public function setIpAddress($ipAddress){
 		$this->ipAddress=$ipAddress;
 	}
-
 
 	public function getDnsName(){
 		return $this->dnsName;
 	}
 
-
 	public function setDnsName($dnsName){
 		$this->dnsName=$dnsName;
 	}
-
 
 	public function getLogin(){
 		return $this->login;
 	}
 
-
 	public function setLogin($login){
 		$this->login=$login;
 	}
-
 
 	public function getPassword(){
 		return $this->password;
 	}
 
-
 	public function setPassword($password){
 		$this->password=$password;
 	}
 
-
-	public function getRoutes(){
-		return $this->routes;
-	}
-
-
-	public function setRoutes($routes){
-		$this->routes=$routes;
-	}
-
-
-	 public function addToRoutes($route){
-		$this->routes[]=$route;
-		$route->setServeur($this);
-	}
-
-
-	public function getVms(){
-		return $this->vms;
-	}
-
-
-	public function setVms($vms){
-		$this->vms=$vms;
-	}
-
-
-	 public function addToVms($vm){
-		$this->vms[]=$vm;
-		$vm->setServeur($this);
-	}
-
-
-	public function getUser_s(){
-		return $this->user_s;
-	}
-
-
-	public function setUser_s($user_s){
-		$this->user_s=$user_s;
-	}
-
-
-	 public function addUser_($user_){
-		$this->user_s[]=$user_;
-	}
-
-
 	 public function __toString(){
-		return $this->id.'';
+		return $this->login.'';
 	}
+
 
 }

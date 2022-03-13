@@ -10,82 +10,73 @@ use Ubiquity\attributes\items\Table;
 class Dns{
 	
 	#[Id()]
-	#[Column(name: "id",dbType: "int(11)")]
+	#[Column(name: "Id_DNS",dbType: "int(11)")]
 	#[Validator(type: "id",constraints: ["autoinc"=>true])]
-	private $id;
+	private $Id_DNS;
 
 	
-	#[Column(name: "ipAddress",nullable: true,dbType: "varchar(15)")]
-	#[Validator(type: "length",constraints: ["max"=>15])]
+	#[Column(name: "ipAddress",nullable: true,dbType: "varchar(50)")]
+	#[Validator(type: "length",constraints: ["max"=>50])]
 	private $ipAddress;
 
 	
-	#[Column(name: "port",nullable: true,dbType: "int(11)")]
+	#[Column(name: "port",nullable: true,dbType: "varchar(50)")]
+	#[Validator(type: "length",constraints: ["max"=>50])]
 	private $port;
 
 	
-	#[Column(name: "dnsName",nullable: true,dbType: "varchar(255)")]
-	#[Validator(type: "length",constraints: ["max"=>255])]
+	#[Column(name: "dnsName",nullable: true,dbType: "varchar(100)")]
+	#[Validator(type: "length",constraints: ["max"=>100])]
 	private $dnsName;
 
 	
-	#[Column(name: "idServer",dbType: "int(11)")]
+	#[Column(name: "Id_Serveur_idServer",dbType: "int(11)")]
 	#[Validator(type: "notNull",constraints: [])]
-	private $idServer;
+	private $Id_Serveur_idServer;
 
-
-	public function getId(){
-		return $this->id;
+	public function getId_DNS(){
+		return $this->Id_DNS;
 	}
 
-
-	public function setId($id){
-		$this->id=$id;
+	public function setId_DNS($Id_DNS){
+		$this->Id_DNS=$Id_DNS;
 	}
-
 
 	public function getIpAddress(){
 		return $this->ipAddress;
 	}
 
-
 	public function setIpAddress($ipAddress){
 		$this->ipAddress=$ipAddress;
 	}
-
 
 	public function getPort(){
 		return $this->port;
 	}
 
-
 	public function setPort($port){
 		$this->port=$port;
 	}
-
 
 	public function getDnsName(){
 		return $this->dnsName;
 	}
 
-
 	public function setDnsName($dnsName){
 		$this->dnsName=$dnsName;
 	}
 
-
-	public function getIdServer(){
-		return $this->idServer;
+	public function getId_Serveur_idServer(){
+		return $this->Id_Serveur_idServer;
 	}
 
-
-	public function setIdServer($idServer){
-		$this->idServer=$idServer;
+	public function setId_Serveur_idServer($Id_Serveur_idServer){
+		$this->Id_Serveur_idServer=$Id_Serveur_idServer;
 	}
-
 
 	 public function __toString(){
-		return ($this->idServer??'no value').'';
+		return ($this->Id_Serveur_idServer??'no value').'';
 	}
+
 
 }

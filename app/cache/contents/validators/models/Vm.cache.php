@@ -1,2 +1,2 @@
 <?php
-return array("id"=>[["type"=>"id","constraints"=>["autoinc"=>true]]],"name"=>[["type"=>"length","constraints"=>["max"=>50]]],"ip"=>[["type"=>"length","constraints"=>["max"=>15]]],"os"=>[["type"=>"length","constraints"=>["max"=>255]]]);
+return array("Id_VM"=>[["type"=>"id","constraints"=>["autoinc"=>true]]],"name"=>[["type"=>"length","constraints"=>["max"=>100]]],"os"=>[["type"=>"length","constraints"=>["max"=>100]]],"Id_Serveur_idServeur"=>[["type"=>"notNull","constraints"=>[]]]);

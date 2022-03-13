@@ -1,0 +1,2 @@
+<?php
+return array("#tableName"=>"usergroups","#primaryKeys"=>["Id_User_"=>"Id_User_","Id_Groupe"=>"Id_Groupe"],"#manyToOne"=>[],"#fieldNames"=>["Id_User_"=>"Id_User_","Id_Groupe"=>"Id_Groupe"],"#memberNames"=>["Id_User_"=>"Id_User_","Id_Groupe"=>"Id_Groupe"],"#fieldTypes"=>["Id_User_"=>"int(11)","Id_Groupe"=>"int(11)"],"#nullable"=>["Id_User_","Id_Groupe"],"#notSerializable"=>[],"#transformers"=>[],"#accessors"=>["Id_User_"=>"setId_User_","Id_Groupe"=>"setId_Groupe"]);

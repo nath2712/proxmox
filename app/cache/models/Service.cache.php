@@ -1,0 +1,2 @@
+<?php
+return array("#tableName"=>"service","#primaryKeys"=>["Id_Service"=>"Id_Service"],"#manyToOne"=>[],"#fieldNames"=>["Id_Service"=>"Id_Service","service"=>"service"],"#memberNames"=>["Id_Service"=>"Id_Service","service"=>"service"],"#fieldTypes"=>["Id_Service"=>"int(11)","service"=>"varchar(100)"],"#nullable"=>["Id_Service","service"],"#notSerializable"=>[],"#transformers"=>[],"#accessors"=>["Id_Service"=>"setId_Service","service"=>"setService"]);

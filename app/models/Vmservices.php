@@ -5,90 +5,53 @@ use Ubiquity\attributes\items\Id;
 use Ubiquity\attributes\items\Column;
 use Ubiquity\attributes\items\Validator;
 use Ubiquity\attributes\items\Table;
-use Ubiquity\attributes\items\ManyToOne;
-use Ubiquity\attributes\items\JoinColumn;
 
 #[Table(name: "vmservices")]
 class Vmservices{
 	
 	#[Id()]
-	#[Column(name: "idVm",dbType: "int(11)")]
+	#[Column(name: "Id_Service_idService",dbType: "int(11)")]
 	#[Validator(type: "id",constraints: ["autoinc"=>true])]
-	private $idVm;
+	private $Id_Service_idService;
 
 	
 	#[Id()]
-	#[Column(name: "idService",dbType: "int(11)")]
+	#[Column(name: "Id_VM_idVm",dbType: "int(11)")]
 	#[Validator(type: "id",constraints: ["autoinc"=>true])]
-	private $idService;
+	private $Id_VM_idVm;
 
 	
-	#[Column(name: "port",nullable: true,dbType: "int(11)")]
+	#[Column(name: "port",nullable: true,dbType: "varchar(50)")]
+	#[Validator(type: "length",constraints: ["max"=>50])]
 	private $port;
 
-	
-	#[ManyToOne()]
-	#[JoinColumn(className: "models\\Service",name: "idService")]
-	private $service;
-
-	
-	#[ManyToOne()]
-	#[JoinColumn(className: "models\\Vm",name: "idVm")]
-	private $vm;
-
-
-	public function getIdVm(){
-		return $this->idVm;
+	public function getId_Service_idService(){
+		return $this->Id_Service_idService;
 	}
 
-
-	public function setIdVm($idVm){
-		$this->idVm=$idVm;
+	public function setId_Service_idService($Id_Service_idService){
+		$this->Id_Service_idService=$Id_Service_idService;
 	}
 
-
-	public function getIdService(){
-		return $this->idService;
+	public function getId_VM_idVm(){
+		return $this->Id_VM_idVm;
 	}
 
-
-	public function setIdService($idService){
-		$this->idService=$idService;
+	public function setId_VM_idVm($Id_VM_idVm){
+		$this->Id_VM_idVm=$Id_VM_idVm;
 	}
-
 
 	public function getPort(){
 		return $this->port;
 	}
 
-
 	public function setPort($port){
 		$this->port=$port;
 	}
 
-
-	public function getService(){
-		return $this->service;
-	}
-
-
-	public function setService($service){
-		$this->service=$service;
-	}
-
-
-	public function getVm(){
-		return $this->vm;
-	}
-
-
-	public function setVm($vm){
-		$this->vm=$vm;
-	}
-
-
 	 public function __toString(){
-		return $this->idVm.'';
+		return $this->Id_Service_idService.'';
 	}
+
 
 }
