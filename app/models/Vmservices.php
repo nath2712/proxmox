@@ -88,7 +88,7 @@ class Vmservices{
 
 
 	 public function __toString(){
-		return $this->idVm.'';
+		return $this->vm.'';
 	}
 
 }

@@ -1,8 +1,6 @@
 <?php
 namespace controllers;
 
-use Ubiquity\controllers\auth\AuthController;
-use Ubiquity\controllers\auth\WithAuthTrait;
 use Ubiquity\controllers\Controller;
 use Ubiquity\utils\http\URequest;
 
@@ -10,7 +8,6 @@ use Ubiquity\utils\http\URequest;
  * controllers$ControllerBase
  */
 abstract class ControllerBase extends Controller {
-use WithAuthTrait;// appel le controller de connection
 
 	protected $headerView = "@activeTheme/main/vHeader.html";
 
@@ -27,12 +24,5 @@ use WithAuthTrait;// appel le controller de connection
 			$this->loadView($this->footerView);
 		}
 	}
-
-    protected function getAuthController(): AuthController// appelle le controlleur de connexion
-    {
-        return new Myauth($this);
-    }
-
-
 }
 

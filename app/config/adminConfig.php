@@ -44,7 +44,8 @@ return array(
 			"translate",
 			"themes",
 			"maintenance",
-			"composer"
+			"composer",
+			"security"
 			],
 	"style"=>"inverted"
 	);
