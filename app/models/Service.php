@@ -67,7 +67,7 @@ class Service{
 
 
 	 public function __toString(){
-		return $this->id.'';
+		return $this->service.'';
 	}
 
 }

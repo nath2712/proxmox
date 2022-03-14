@@ -158,7 +158,7 @@ class Serveur{
 
 
 	 public function __toString(){
-		return $this->id.'';
+		return $this->dnsName.'';
 	}
 
 }

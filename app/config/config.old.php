@@ -3,7 +3,7 @@ return array(
 	"siteUrl"=>"http://127.0.0.1:8090/",
 	"database"=>[
 			"type"=>"mysql",
-			"dbName"=>"proxmox",
+			"dbName"=>"0x0",
 			"serverName"=>"127.0.0.1",
 			"port"=>3306,
 			"user"=>"root",
@@ -11,7 +11,7 @@ return array(
 			"options"=>[],
 			"cache"=>false
 			],
-	"sessionName"=>"s6215ecbb6ca4c",
+	"sessionName"=>"s622d0ea7e28c5",
 	"namespaces"=>[],
 	"templateEngine"=>"Ubiquity\\views\\engine\\Twig",
 	"templateEngineOptions"=>[
@@ -19,7 +19,7 @@ return array(
 			],
 	"test"=>false,
 	"debug"=>true,
-	"logger"=>function (){return new \Ubiquity\log\libraries\UMonolog("proxmox",\Monolog\Logger::INFO);},
+	"logger"=>function (){return new \Ubiquity\log\libraries\UMonolog("0x0",\Monolog\Logger::INFO);},
 	"di"=>[
 			"@exec"=>[
 					"jquery"=>function ($controller){
