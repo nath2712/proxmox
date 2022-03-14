@@ -23,13 +23,19 @@ use Ubiquity\orm\DAO;
 
 #[Route(path: "/{resource}/hub",inherited: true,automated: true)]
 class Hub extends \Ubiquity\controllers\crud\MultiResourceCRUDController{
+    use WithAuthTrait{
+        initialize as initializeAuth;
+    }
 
-    protected $headerView = "@activeTheme/main/vHeader.html";
+    public function initialize()
+    {
+        $this->headerView='@activeTheme/main/vHeader.html';
+        $this->footerView='@activeTheme/main/vFooter.html';
+        $this->initializeAuth();
+    }
 
-    protected $footerView = "@activeTheme/main/vFooter.html";
 
-    use WithAuthTrait;
-	#[Route(name: "crud.index",priority: -1)]
+    #[Route(name: "crud.index",priority: -1)]
 	public function index() {
 		parent::index();
 	}

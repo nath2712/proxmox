@@ -43,7 +43,18 @@ class HubDatas extends CRUDDatas{
     public function getFieldNames(string $model): array
     {
         $fields= parent::getFieldNames($model);
+        if($model==User_::class){
+            $fields[]='serveurs';
+            $fields[]='groupes';
+        }
         return UArray::remove($fields,['id','password']);
     }
+
+    public function getFormFieldNames(string $model, $instance): array
+    {
+        $fields= parent::getFormFieldNames($model,$instance);
+        return UArray::remove($fields,['id','password']);
+    }
+
 
 }

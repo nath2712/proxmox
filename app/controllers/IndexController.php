@@ -20,7 +20,7 @@ class IndexController extends ControllerBase {
             $this->loadView('@activeTheme/Hub/index.html');
         }*/
         if(USession::exists('activeUser')){
-            UResponse::header('Location','/home');
+            UResponse::header('Location','/Hub/home');
         }
         else {
             $this->loadView('@activeTheme/main/index.html');
