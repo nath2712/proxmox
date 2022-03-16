@@ -1,6 +1,8 @@
 <?php
 namespace controllers;
 use models\User_;
+use Ubiquity\controllers\Router;
+use Ubiquity\controllers\Startup;
 use Ubiquity\orm\DAO;
 use Ubiquity\utils\http\UResponse;
 use Ubiquity\utils\http\USession;
@@ -14,11 +16,18 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController{
 		$urlParts=$this->getOriginalURL();
 		USession::set($this->_getUserSessionKey(), $connected);
 		if(isset($urlParts)){
-			$this->_forward(implode("/",$urlParts));
+            UResponse::header('Location',URequest::getUrl(implode("/",$urlParts)));
 		}else{
-            UResponse::header('Location','/hub/home');
-			//TODO
-			//Forwarding to the default controller/action
+            if(USession::exists('activeUser')){
+                $user=USession::get('activeUser');
+                /*if ($user->getRole()==='@Etudiant'){
+                   //UResponse::header('Location','/Hub/home');
+                    UResponse::header('Location','/Etudiantvm/');
+                }*/
+              //  else {
+                    UResponse::header('Location','/Hub/home');
+                //}
+            }
 		}
 	}
 
@@ -71,7 +80,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController{
             $user = new User_();
             $user->setLogin($login);
             $user->setPassword(\password_hash($password,PASSWORD_DEFAULT));
-            $user->setRole("Etudiant");
+            $user->setRole("@Etudiant");
             DAO::toInsert($user);
 //Perform inserts
             DAO::flushInserts();

@@ -45,7 +45,8 @@ return array(
 			"themes",
 			"maintenance",
 			"composer",
-			"security"
+			"security",
+			"acls"
 			],
 	"style"=>"inverted"
 	);
